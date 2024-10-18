@@ -1,6 +1,6 @@
 require('dotenv').config();
 const path = require('path');
-const express = require('express');
+const express = require('express')
 
 // Middleware imports
 const handleCookieSessions = require('./middleware/handleCookieSessions');
