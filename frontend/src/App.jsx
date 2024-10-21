@@ -10,6 +10,8 @@ import { checkForLoggedInUser } from './adapters/auth-adapter';
 import UsersPage from './pages/Users';
 import UserPage from './pages/User';
 
+import CreatePostPage from './pages/CreatPost';
+
 export default function App() {
   const { setCurrentUser } = useContext(UserContext);
   useEffect(() => {
@@ -26,6 +28,7 @@ export default function App() {
         <Route path='/users' element={<UsersPage />} />
         <Route path='/users/:id' element={<UserPage />} />
         <Route path='*' element={<NotFoundPage />} />
+        <Route path='/create-post' element={<CreatePostPage />}/>
       </Routes>
     </main>
   </>;
