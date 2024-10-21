@@ -17,12 +17,12 @@ class Feed {
         const postCount = `SELECT COUNT(*) as total_posts FROM posts`;
 
         const { rows: feedData } = await knex.raw(FeedSQL, [limit, offset]);
-        const { rows: [totalPosts] } = await knex.raw(postCount);
+        const { rows: [{ total_posts }] } = await knex.raw(postCount);
 
         return {
             data: feedData,
-            totalPosts: Number(totalPosts.totalPosts),
-            totalPages: Math.ceil(totalPosts / limit),
+            totalPosts: Number(total_posts),
+            totalPages: Math.ceil(total_posts / limit),
             currentPage: Number(page)
         };
     }
