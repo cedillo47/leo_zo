@@ -7,3 +7,8 @@ const baseUrl = '/api/posts';
 export const createPost = async ({ title, body }) => {
   return fetchHandler(baseUrl, getPostOptions({ title, body }))
 };
+
+
+export const getUserPost = async () => {
+  return fetchHandler(baseUrl)
+}
