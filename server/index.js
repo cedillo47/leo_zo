@@ -39,6 +39,7 @@ app.get('/api/feed', feedControllers.loadFeed)
 // Post
 app.post('/api/posts', checkAuthentication, postControllers.createPost);
 app.delete('/api/posts/:post_id',checkAuthentication,postControllers.deletePost)
+app.get('/api/posts', checkAuthentication, postControllers.getUsersPost)
 
 // Like
 app.post('/api/posts/:post_id/like', checkAuthentication, likeControllers.createLike);
