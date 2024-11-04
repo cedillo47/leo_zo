@@ -32,6 +32,15 @@ exports.deletePost = async (req, res) => {
     }
 }
 
+exports.getUsersPost = async (req, res) => {
+    const { userId } = this.getUserAndPostData(req)
+    try{
+        const posts = await Post.findPostByUser(userId)
+        return res.status(200).send(posts)
+    }catch(error){
+        res.status(500).send({ error: error.message })
+    }
+}
 
 exports.getUserAndPostData = (req) => {
   const { userId } = req.session
